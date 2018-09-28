@@ -1,6 +1,7 @@
 package rx_sample.rx_sample
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -54,6 +55,9 @@ class Main2Activity : AppCompatActivity() {
     @SuppressLint("CheckResult")
     private fun registerActions() {
         allInputValid.subscribe(RxView.enabled(nextButton))
+        RxView.clicks(nextButton).subscribe{
+            startActivity(Intent(this, Main3Activity::class.java))
+        }
     }
 
 }

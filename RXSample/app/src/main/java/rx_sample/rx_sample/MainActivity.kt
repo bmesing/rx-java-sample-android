@@ -35,8 +35,10 @@ class MainActivity : AppCompatActivity() {
                 .filter { it % 2 == 0 }
                 .map { it * 2 }
                 .doOnNext{
-                    Log.d(TAG, "Value: $it");
+                    Log.d(TAG, "Value: $it")
                 }
+
+
                 // mark 1 (keine Auswertung)
                 .subscribe{
                     label.text = it.toString()
