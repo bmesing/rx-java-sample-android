@@ -1,5 +1,7 @@
 package rx_sample.rx_sample
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -26,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         label = findViewById<View>(R.id.label) as TextView
     }
 
+    @SuppressLint("CheckResult")
     override fun onStart() {
         super.onStart()
         Observable.just(1,2,3,4,5,6)
@@ -40,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
         // mark 2 (UI Cool)
-        RxView.clicks(findViewById<View>(R.id.rxClickButton)).subscribe{
+        RxView.clicks(rxClickButton).subscribe{
             Log.d(TAG, "Clicked")
         }
 
@@ -62,7 +65,10 @@ class MainActivity : AppCompatActivity() {
         /// Prinzip: UI-Änderungen sind Nebenwirkung von Event-Streams
 
 
-
+        RxView.clicks(findViewById<View>(R.id.go_to_step_2)).subscribe{
+            val launchIntent = Intent(this, Main2Activity::class.java)
+            startActivity(launchIntent)
+        }
 
 
     }
