@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "Clicked2")
         }
 
-        // mark 4 (Lösung: Hot vs. Cold)
+        // mark 4 (Solution: Hot vs. Cold)
         val observable = RxView.clicks(rxClickButton).share();
 
         observable.subscribe{
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "Clicked4")
         }
 
-        /// Prinzip: UI-Änderungen sind Nebenwirkung von Event-Streams
+        /// Principle: UI-Changes are side effects of event streams
 
 
         RxView.clicks(findViewById<View>(R.id.go_to_step_2)).subscribe{
