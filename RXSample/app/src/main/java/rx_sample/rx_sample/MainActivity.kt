@@ -40,21 +40,28 @@ class MainActivity : AppCompatActivity() {
 
 
                 // mark 1 (keine Auswertung)
+                /*
                 .subscribe{
                     label.text = it.toString()
                 }
+                */
 
         // mark 2 (UI Cool)
+        /*
         RxView.clicks(rxClickButton).subscribe{
             Log.d(TAG, "Clicked")
         }
+        */
 
         // mark 3 (WTF)
+        /*
         RxView.clicks(rxClickButton).subscribe{
             Log.d(TAG, "Clicked2")
         }
+        */
 
-        // mark 4 (Solution: Hot vs. Cold)
+        // mark 3 (Solution: Hot vs. Cold)
+        /*
         val observable = RxView.clicks(rxClickButton).share();
 
         observable.subscribe{
@@ -63,14 +70,16 @@ class MainActivity : AppCompatActivity() {
         observable.subscribe{
             Log.d(TAG, "Clicked4")
         }
+        */
 
         /// Principle: UI-Changes are side effects of event streams
 
-
+        /*
         RxView.clicks(findViewById<View>(R.id.go_to_step_2)).subscribe{
             val launchIntent = Intent(this, Main2Activity::class.java)
             startActivity(launchIntent)
         }
+        */
 
 
     }
