@@ -28,10 +28,11 @@ class Main3Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
 
+        // crash -> Thread
+        // crash bei drittem Click
         disposable = RxView.clicks(findViewById<Button>(R.id.clickme))
                 .flatMapSingle { getCustomerId() }
                 .flatMapSingle(this::getCustomerName)
-                .onErrorResumeNext{ error: Throwable -> Observable.just("Unknown")}
                 .subscribe(RxTextView.text(findViewById<Button>(R.id.label)))
         // Mark2: see end of function
 
@@ -47,7 +48,7 @@ class Main3Activity : AppCompatActivity() {
         // Seiteneffekte: doOnNext, doOnError, ...
 
         // Mark3: onErrorResumeNext
-        // .onErrorResumeNext { Single.just("Unbekannt")}
+        //        .onErrorResumeNext {  error: Throwable -> Observable.just("Unknown") }
 
 
         // Mark4: Subject (Advanced: own Observables)

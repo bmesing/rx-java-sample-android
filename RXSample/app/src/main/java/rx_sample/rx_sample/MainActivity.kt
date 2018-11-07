@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         // mark 3 (Solution: Hot vs. Cold)
         /*
-        val observable = RxView.clicks(rxClickButton).share();
+        val observable = RxView.clicks(rxClickButton)
 
         observable.subscribe{
             Log.d(TAG, "Clicked3")
